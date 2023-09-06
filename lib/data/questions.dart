@@ -1,6 +1,6 @@
 import 'package:question_app/models/questions_model.dart';
 
-const questions = [
+const listOfq = [
   QuestionModel(
     'What are the main building blocks of Flutter UIs?',
     [

@@ -11,6 +11,43 @@ class Questions extends StatefulWidget {
 class _QuestionsState extends State<Questions> {
   @override
   Widget build(context) {
-    return const Text('Hello world!');
+    return SizedBox(
+      width: double.infinity,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const Text(
+            'Question ............?',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 20,
+            ),
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+          ElevatedButton(
+              onPressed: () {},
+              style:
+                  ElevatedButton.styleFrom(backgroundColor: Colors.transparent),
+              child: const Text('Option 1')),
+          ElevatedButton(
+              onPressed: () {},
+              style:
+                  ElevatedButton.styleFrom(backgroundColor: Colors.transparent),
+              child: const Text('Option 2')),
+          ElevatedButton(
+              onPressed: () {},
+              style:
+                  ElevatedButton.styleFrom(backgroundColor: Colors.transparent),
+              child: const Text('Option 3')),
+          ElevatedButton(
+              onPressed: () {},
+              style:
+                  ElevatedButton.styleFrom(backgroundColor: Colors.transparent),
+              child: const Text('Option 4')),
+        ],
+      ),
+    );
   }
 }

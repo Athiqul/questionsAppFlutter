@@ -29,7 +29,6 @@ class _QuizState extends State<Quiz> {
     setState(() {
       if (userAnswers.length == listOfq.length) {
         screen = 'result-screen';
-        userAnswers = [];
       }
     });
   }
@@ -38,6 +37,7 @@ class _QuizState extends State<Quiz> {
   void restart() {
     setState(() {
       screen = 'start-screen';
+      userAnswers = [];
     });
   }
 

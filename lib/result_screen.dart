@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:question_app/data/questions.dart';
+import 'package:question_app/summary_show.dart';
 
 class ResultScreen extends StatelessWidget {
   const ResultScreen(
@@ -26,6 +27,14 @@ class ResultScreen extends StatelessWidget {
 
   @override
   Widget build(context) {
+    final qLen = listOfq.length;
+    final summary = getSummary();
+    final score = summary.where(
+      (element) {
+        return element['correctAnswer'] == element['userAnswer'];
+      },
+    ).length;
+
     return SizedBox(
       width: double.infinity,
       child: Container(
@@ -34,19 +43,37 @@ class ResultScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const Text('You have correctly answers X out of Y'),
+            Text(
+              'You have correctly answers $score out of $qLen',
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold),
+            ),
             const SizedBox(
               height: 30,
             ),
-            const Text('Answer and questions showing'),
+            SummaryShow(summary: summary),
             const SizedBox(
-              height: 30,
+              height: 40,
             ),
-            TextButton(
+            TextButton.icon(
                 onPressed: () {
                   restart();
                 },
-                child: const Text('Restart quiz again!'))
+                style: TextButton.styleFrom(
+                    backgroundColor: Colors.transparent,
+                    foregroundColor: Colors.white),
+                icon: const Icon(
+                  Icons.refresh,
+                  color: Colors.white,
+                ),
+                label: const Text(
+                  'Restart quiz again!',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(color: Colors.white),
+                ))
           ],
         ),
       ),
